@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>账号注册</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Microsoft Yahei", sans-serif;
+    }
+    body {
+      background-color: #eef2f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .register-box {
+      background: white;
+      width: 420px;
+      padding: 40px 32px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 28px;
+      color: #222;
+    }
+    .item {
+      margin-bottom: 20px;
+    }
+    .item label {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 14px;
+      color: #444;
+    }
+    .item input {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1px solid #dcdfe6;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+    .item input:focus {
+      outline: none;
+      border-color: #4096ff;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #4096ff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:hover {
+      background-color: #2985ee;
+    }
+    .tip {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-box">
+    <h2>创建账号</h2>
+    <div class="item">
+      <label>用户名</label>
+      <input id="username" placeholder="输入用户名">
+    </div>
+    <div class="item">
+      <label>邮箱</label>
+      <input id="email" placeholder="输入邮箱">
+    </div>
+    <div class="item">
+      <label>密码</label>
+      <input id="pwd" type="password" placeholder="设置密码">
+    </div>
+    <div class="item">
+      <label>确认密码</label>
+      <input id="pwd2" type="password" placeholder="再输一次密码">
+    </div>
+    <button id="submitBtn">立即注册</button>
+    <div class="tip">已有账号？可前往登录页面</div>
+  </div>
+
+  <script>
+    const btn = document.getElementById("submitBtn");
+    btn.onclick = () => {
+      const user = document.getElementById("username").value.trim();
+      const mail = document.getElementById("email").value.trim();
+      const p1 = document.getElementById("pwd").value;
+      const p2 = document.getElementById("pwd2").value;
+
+      if (!user || !mail || !p1 || !p2) {
+        alert("请把所有内容填完整！");
+        return;
+      }
+      if (p1 !== p2) {
+        alert("两次输入的密码不一样！");
+        return;
+      }
+      alert(`注册成功！\n用户名：${user}\n邮箱：${mail}`);
+    };
+  </script>
+</body>
+</html>
